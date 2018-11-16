@@ -21,6 +21,16 @@
   * Draw a state machine diagram for a VT-100 that can consume regular
     character sequences as well as the two above ESC sequences.
 
+STATE MACHINE KEY:
+START. starting pont
+1. print character
+2. switch to escape sequence processing mode
+3. A number is entered
+4. Text is switched to bold if number = 1
+5. either a number then ; or just ; = 0
+7. move cursor to position if no numbers provided 0,0
+8. waiting for end character 
+
 > If you're curious, [here are all the VT-100 escape
 > sequences](http://ascii-table.com/ansi-escape-sequences-vt-100.php).
 > More common these days is a superset of VT-100 called [ANSI escape
