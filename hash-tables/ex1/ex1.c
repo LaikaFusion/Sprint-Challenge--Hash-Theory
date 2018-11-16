@@ -5,10 +5,19 @@
 
 Answer *get_indices_of_item_weights(int *weights, int length, int limit)
 {
-  HashTable *ht = create_hash_table(16);
-
-  // YOUR CODE HERE
-
+  HashTable *ht = create_hash_table(length);
+  for(int i=0; i < length; i++){
+    int isthere = hash_table_retrieve(ht, limit - weights[i]);
+    if(isthere != -1){
+      Answer *toReturn =malloc(sizeof(toReturn));
+      toReturn->index_1 = i;
+      toReturn->index_2 = isthere;
+      destroy_hash_table(ht);
+      return toReturn;
+    }
+        hash_table_insert(ht,weights[i],i);
+  }
+  destroy_hash_table(ht);
   return NULL;
 }
 
